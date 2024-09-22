@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="lab4.css">
+
+</head>
+<body>
+    
+
+<header>
+
+    <H1 id="H1"> INST377 - LAB 4 </H1>
+</header>
+
+<div class="container">
+<section id = " Alert Me">
+<form onsubmit="return alertName()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <button>Alert Me!</button>
+</form> <br>
+</section>
+
+<section id = "Change Color">
+    <button onclick="ChangeColor()">Change Color</button>
+</section> <br>
+
+<section id = " Text Tester">
+    <form>
+        <label for="Text_Tester">Text Tester: </label>
+        <input type="text" id="text" required>
+        <button onclick = "ValidateText()">Validate Text</button>
+    </form> <br>
+</section>
+<section id = "Add Text">
+    <button onclick="ADDText()"> Add Text</button>
+</section>
+</div>
+
+</body>
+<script>
+    
+    function alertName() {
+        var name = document.getElementById("name").value
+        alert('Hello ' + name)
+    }
+    function ChangeColor() {
+        var body = document.querySelector('body');
+        if (document.querySelector('body').style.backgroundColor === "white"){
+            body.style.backgroundColor = "grey";
+        } else {  
+        body.style.backgroundColor = "white";
+    }
+}
+    function ADDText() {
+
+    document.getElementById("H1").innerHTML += "ADD TEXT"
+    }
+    
+    function ValidateText() {
+        var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        var text = document.getElementById("text").value
+        if (validation.test(text)) {
+            alert('No Special Characters!');
+            return false;
+        }
+        return true;
+    }
+        
+    </script>
+
+</html>
+
